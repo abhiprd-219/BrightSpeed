@@ -49,15 +49,36 @@ const person = {
     }
   }
 
+
+
   const newObj = new Student('abhi','21wd23i','pass');
   const newObj2 = new Student('dev','21wsdd23i','pass');
   const newObj3 = new Student('roy','2123wd23i','fail');
 
+  //document.getElementById("demo").innerHTML = newObj.id+"   " + newObj.name  +"    " + newObj.result;
+
+
   myArr.push(newObj);
   myArr.push(newObj3);
   myArr.push(newObj2);
-  //console.log(myArr[2]);
+  console.log(myArr[2]);
 
   for(let i in myArr){
-    console.log(myArr[i]);
+    //console.log(myArr[i]);
   }
+
+  let valueObj = "";
+  for(let i in newObj){
+    valueObj += newObj[i] + " ";
+  };
+
+  console.log(valueObj);
+  // document.getElementById("demo").innerHTML = valueObj;
+
+  // document.getElementById("demo").innerHTML = JSON.stringify(newObj);
+
+
+
+  //
+
+
