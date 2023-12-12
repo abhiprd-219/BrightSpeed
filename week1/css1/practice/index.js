@@ -49,9 +49,15 @@ const person = {
     }
   }
 
-  const newObj = Student('abhi','21wd23i','pass');
-  const newObj2 = Student('dev','21wsdd23i','pass');
-  const newObj3 = Student('roy','2123wd23i','fail');
+  const newObj = new Student('abhi','21wd23i','pass');
+  const newObj2 = new Student('dev','21wsdd23i','pass');
+  const newObj3 = new Student('roy','2123wd23i','fail');
 
   myArr.push(newObj);
-  console.log(myArr);
+  myArr.push(newObj3);
+  myArr.push(newObj2);
+  //console.log(myArr[2]);
+
+  for(let i in myArr){
+    console.log(myArr[i]);
+  }
