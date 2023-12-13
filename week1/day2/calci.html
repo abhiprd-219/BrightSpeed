@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        input {
+            width: 50px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Basic Calculator</h2>
+
+    <input type="int" id="userInputA" placeholder="Enter value of a">
+    <input type="int" id="userInputB" placeholder="Enter value of b">
+    <button onclick="calculateResult()">Calculate</button>
+
+    <p id="result">Result: </p>
+
+    <script>
+
+        function add(a,b){
+            return a+b;
+        }
+        function calculateResult() {
+            try {
+                const a = document.getElementById('userInputA').value;
+                const b = document.getElementById('userInputB').value;
+                const result = add(a,b);
+                document.getElementById('result').textContent = 'Result: ' + result;
+            } catch (error) {
+                document.getElementById('result').textContent = 'Error';
+            }
+        }
+    </script>
+
+</body>
+</html>
