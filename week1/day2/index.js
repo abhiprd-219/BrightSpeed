@@ -256,11 +256,10 @@ const totalPrice2 = finalPriceOfProduct.reduce((accumulator, currentValue) => {
 
  let stringExm = "hi my name is mr stark";
 
- let newStringExm = stringExm.replace("hi", "hello");
-
  let stringExmp2 = [];
 
- let splitString = newStringExm.split(" ");
+ let splitString = stringExm.split(" ");
+ //console.log(splitString);
 
  for(let i=0;i<splitString.length;i++){
     let newStrInArray = (splitString[i].slice(0, 1)).toUpperCase();
