@@ -238,21 +238,50 @@ priceOnly.push(finalPriceOfProduct[i].price);
 
 }
 
-console.log(priceOnly);
+//console.log(priceOnly);
 let total = priceOnly.reduce(sumTotal);
 
 function sumTotal(acc,cValue){
     return acc+cValue;
 }
 
-console.log("total price = "+total);
+//console.log("total price = "+total);
 
 
 const totalPrice2 = finalPriceOfProduct.reduce((accumulator, currentValue) => {
     return accumulator + currentValue.price;
   }, 0);
 
-  console.log(totalPrice2)
+ // console.log(totalPrice2)
+
+ let stringExm = "hi my name is mr stark";
+
+ let newStringExm = stringExm.replace("hi", "hello");
+
+ let stringExmp2 = [];
+
+ let splitString = newStringExm.split(" ");
+
+ for(let i=0;i<splitString.length;i++){
+    let newStrInArray = (splitString[i].slice(0, 1)).toUpperCase();
+    let restOfStringChar = splitString[i].slice(1);
+
+    let finalString = newStrInArray+restOfStringChar;
+    
+    //console.log(finalString);
+    stringExmp2.push(finalString);
+
+ }
+
+ let resultOfTaskString = stringExmp2.toString();
+ //console.log(stringExmp2)
+ //console.log(resultOfTaskString);
+
+ let fString = resultOfTaskString.replace(/,/g, " ");
+ console.log(fString);
+// console.log(splitString);
+//  console.log(stringExmp2);
+
 
 
 
