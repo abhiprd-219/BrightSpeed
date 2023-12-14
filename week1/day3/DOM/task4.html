@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display and Remove String Array</title>
+</head>
+<body>
+<h3>Below array is available to test removing element</h3>
+  <p id="stringList"></p>
+
+  <script>
+    let stringArray = ["Hello", "My", "Name", "Is", "Abhishek", "Pandey"];
+
+    function display(array, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+
+      for (const name of array) {
+        const h2 = document.createElement('h2');
+        h2.textContent = name;
+
+        h2.addEventListener('click', (event) => {
+          const clickedString = event.target.textContent;
+          array.splice(array.indexOf(clickedString), 1);
+          display(array, containerId);
+        });
+
+        container.appendChild(h2);
+      }
+    }
+
+    display(stringArray, 'stringList');
+  </script>
+
+</body>
+</html>
