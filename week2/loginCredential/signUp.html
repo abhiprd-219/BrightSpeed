@@ -1,0 +1,53 @@
+<!-- public/signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+</head>
+<body>
+
+    <form id="signupForm" onsubmit="submitForm(event)">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="Sign Up">
+    </form>
+
+    
+</body>
+
+<script>
+
+    // public/signup.js
+function submitForm(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const user = { username, password };
+
+    fetch('http://localhost:3000/posts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        document.getElementById("signupForm").reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+</script>
+</html>

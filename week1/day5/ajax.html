@@ -14,16 +14,25 @@
 <script>
 
 
-function ajaxFunctionProp (){
-    let xhrObj = new XMLHttpRequest();
-    xhrObj.open("get","index.html");
-    xhrObj.send();
-    xhrObj.onreadystatechange = () => {
-        if(xhrObj.readyState == 4 && xhrObj.status == 200){
-            document.getElementById("pid").style.backgroundColor = "green";
-        }
-    }
-};
+// function ajaxFunctionProp (){
+//     let xhrObj = new XMLHttpRequest();
+//     // xhrObj.open("get","index.html");
+//     // xhrObj.send();
+//     // xhrObj.onreadystatechange = () => {
+//     //     if(xhrObj.readyState == 4 && xhrObj.status == 200){
+//     //         document.getElementById("pid").style.backgroundColor = "green";
+//     //     }
+//     // }
+
+//     xhrObj.open("get","db.json");
+//     xhrObj.send();
+//     xhrObj.onreadystatechange = () => {
+//         if(xhrObj.readyState == 4 && xhrObj.status == 200){
+//            console.log(xhrObj.response());
+//            document.getElementById("pid").innerHTML = xhrObj.response();
+//         }
+//     }
+// };
 
 
 

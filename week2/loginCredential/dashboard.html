@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Dashboard Page <p id ="userId"></p>
+    <button onclick="logOutFun()">Log Out</button>
+</body>
+<script>
+
+    // dashboard.html
+
+let authenticate = () => {
+  checkAuthentication();
+
+  function checkAuthentication() {
+    fetch('/api', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => {
+        if (!response.ok) {
+          window.location.href = './login.html';
+        }
+      })
+      .catch(error => {
+        console.error('Error checking authentication:', error);
+      });
+  }
+};
+
+
+
+let name = localStorage.getItem('users');
+
+console.log(name);
+const userData = JSON.parse(localStorage.getItem('users'));
+console.log(userData);
+if(userData == null){
+    authenticate();
+}
+else{
+document.getElementById("userId").innerHTML = `<b> Welcome </b>${userData} <b> to the Dashboard`;
+}
+
+
+let logOutFun = () => {
+    localStorage.clear();
+    window.location.href = "./login.html"
+}
+
+
+
+</script>
+</html>

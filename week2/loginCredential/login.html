@@ -1,0 +1,57 @@
+<!-- public/display.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display Page</title>
+</head>
+<body>
+
+    <form id="login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button onclick="checkCredentials()"> Log In</button>
+    </form>
+    <div id="dataDisplay"></div>
+
+    <script>
+
+
+function checkCredentials() {
+    event.preventDefault();
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    console.log(username,password);
+    let state = true;
+    fetch("http://localhost:3000/posts")
+    .then(resp => resp.json())
+    .then(data => {
+        for(let i of data){
+            if(username == i.username && password == i.password){
+                window.location.href = "./dashboard.html"
+                console.log("Success");
+                state = false
+
+            const usersId = [username];
+            localStorage.setItem('users', JSON.stringify(usersId));
+                
+            }
+        }
+        if(state){
+            console.log("Unsuccess");
+        }
+    })
+
+
+}
+
+    </script>
+
+</body>
+</html>

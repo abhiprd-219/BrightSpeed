@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Button Example</title>
+</head>
+<body>
+
+<!-- Counter Display -->
+<p>Counter: <span id="counter">0</span></p>
+
+<!-- Increment Button -->
+<button id="incrementButton">Increment</button>
+
+<script>
+    // JavaScript to handle the button click and update the counter
+    const counterElement = document.getElementById('counter');
+    const incrementButton = document.getElementById('incrementButton');
+    
+    let counterValue = 0;
+
+    incrementButton.addEventListener('click', function() {
+        counterValue++;
+        counterElement.innerText = counterValue;
+    });
+</script>
+
+</body>
+</html>
