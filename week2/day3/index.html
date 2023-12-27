@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- Show and Hide directive -->
+  <div ng-controller="directiveCtrl">
+    <button ng-show="show"> Show</button>
+    <button ng-hide="hide"> Not-hide </button>
+
+    <h3 ng-repeat="index in array">
+      {{index}}
+    </h3>
+
+    <input type="text" ng-model="myValue" ng-style="{'background-color': myValue == 'red' ? 'red' : 'yellow'}" />
+    <input type="text" ng-model="myValue2" ng-style="{'background-color':'green'}" />
+
+    <p>{{myValue}}</p>
+
+    <h3 ng-class="{h:isRed}">Hello</h3>
+
+    <img ng-src="{{imageUrl}}" ng-style="{'width': '500px','length': '500px'}">
+
+    <img ng-src="{{ironman}}" ng-style="{'width': '500px' , 'length': '500px'}">
+
+    <p ng-style="{'color': textColor, 'background-color':'pink'}" ng-click="changeTextColor()">
+      {{hi}}
+    </p>
+
+  </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+
+  <script src="./index.js"></script>
+
+</html>

@@ -210,7 +210,7 @@ const persons = [
 
 const personsWithEvenAge = persons.filter((cValue,idx,arr) => cValue.age % 2 === 0);
 
-//console.log(personsWithEvenAge[0]);
+console.log(personsWithEvenAge[0]);
 
 
 //Task2 =>
@@ -224,7 +224,7 @@ const productList = [
 //console.log(productList);
 
 let finalPriceOfProduct = productList.map((cValue) => {
-    return {product: cValue.product ,price: cValue.price + 500};
+    return (cValue.product , cValue.price + 500);
 })
 
 // console.log(finalPriceOfProduct[0]);

@@ -1,0 +1,24 @@
+<div ng-controller="registration">
+    <div class="container">
+        <div class="signin-signup">
+            <form action="" class="sign-in-form">
+                <h2 class="title">Sign Up</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username" ng-model="userName">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Email" ng-model="email">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" ng-model="password">
+                </div>
+                <button ng-click="postData()" class="btn"> SignUp</button>
+                <p>Already have an account? <a ng-href="#/signIn" class="account-text" id="sign-up-link">Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

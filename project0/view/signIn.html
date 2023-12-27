@@ -1,0 +1,20 @@
+<div ng-controller="signInCtrl">
+    <div class="container">
+        <div class="signin-signup">
+            <form action="" class="sign-in-form">
+                <h2 class="title">Sign in</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username" ng-model=" userName">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" ng-model="password">
+                </div>
+               =
+                <input type="submit" value="Login" class="btn" ng-click="loginCheck()">
+                <p>Don't have an account? <a ng-href="#/signUp" class="account-text" id="sign-up-link">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+</div>

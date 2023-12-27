@@ -1,0 +1,51 @@
+<div ng-controller="ProductController as ctrl">
+
+
+  <div class="navbar">
+    <div class = "user"><i>Welcome  </i><b>{{user}}</b></div>
+    <div class="dropdown">
+      <div class="filter-search">
+        <label>Filter</label>
+        <select ng-model="ctrl.selectedCategory" ng-change="ctrl.filterProducts()">
+          <option ng-repeat="category in ctrl.categories" ng-value="category">
+            {{ category }}
+          </option>
+        </select>
+        </div>
+    </div>
+
+    <div class="filter-search">
+      <label>Sort by Price</label>
+      <select ng-model="ctrl.sortOrder" ng-change="ctrl.sortProductsByPrice()">
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+    </div>
+    <div controller = "logout"></div>
+    <button ng-click = "logout()">logout</button>
+  </div>
+  
+
+ <!-- <div ng-view> -->
+<div class="container">
+ <div class="product-grid">
+    <ul>
+      <li ng-repeat="product in ctrl.filteredProducts">
+        <div class="product-item">
+          <img ng-src="{{ product.image }}" alt="{{ product.title }}">
+          <div class="product-details">
+            <p><i>{{ product.title }}</i></p>
+            <p><b>{{ product.price * 70 | currency:'₹' }}</b></p>
+           <i class="fa fa-shopping-cart"></i>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
+  </div>
+  <!-- </div> -->
+
+
+
+

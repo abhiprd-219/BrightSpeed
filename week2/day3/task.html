@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Hi Text</title>
+    <style>
+        .highlight {
+            color: red;
+            background-color: pink;
+            cursor: pointer;
+        }
+
+        .login {
+            color: rgb(22, 102, 6);
+            cursor: pointer;
+        }
+
+        .signup {
+            color: rgb(255, 238, 0);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body ng-controller="DirectiveController">
+
+    <div ng-click="changeStyles()" ng-class="{ 'highlight': colored }">Hi</div><br>
+
+    <!-- <button ng-click="login()" ng-class="{ 'login': colored }" ng-s> Login</button>
+    <button ng-click="signup()" ng-class="{ 'signup': colored }"> SignUp </button> -->
+
+
+    <button ng-show = "isLogIn" ng-class="{ 'login': isLogIn }">login</button>
+    <button ng-show = "signUp" ng-class="{ 'signup': signUp }">signup</button>
+    <button ng-click ="toggle()">toggle</button>
+
+
+    <br><br>
+
+    <table border = "3px">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat = "index in array">
+            <td>{{index.name}}</td>
+            <td>{{index.age}}</td>
+        </tr>
+    </table>
+    <br>
+
+
+    <input type="text" ng-model="myValue"  />
+    <input type="text" ng-model="myValue2"  />
+    <input type="text" ng-model="myValue3"  />
+    <input type="text" ng-model="myValue4"  />
+    <button ng-click = "showData()">showData</button>
+
+
+
+
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+    <script>
+        var myApp = angular.module('myApp', []);
+
+        myApp.controller('DirectiveController', function ($scope) {
+
+            $scope.colored = false;
+
+            $scope.changeStyles = function () {
+                if($scope.colored == false){
+                $scope.colored = true;}
+                else{
+                    $scope.colored = false;
+                }
+            };
+
+            $scope.isLogIn = true;
+            $scope.signUp = true;
+            $scope.toggle = function () {
+                if($scope.isLogIn == true){
+                    $scope.isLogIn = false;
+                    $scope.signUp = true;
+                }
+
+                else{
+
+                    $scope.isLogIn = true;
+                    $scope.signUp = false;
+
+                }
+            };
+
+
+            $scope.array = [
+    {name: "abhi",age:24},{name: "abhi",age:24},{name: "abhi",age:24},{name: "abhi",age:24}
+
+];
+
+$scope.myValue;
+$scope.myValue2;
+$scope.myValue3;
+$scope.myValue4;
+
+var obj = {};
+
+$scope.showData = function(){
+
+    obj.myValue = $scope.myValue;
+    obj.myValue2 = $scope.myValue;
+    obj.myValue3 = $scope.myValue;
+    obj.myValue4 = $scope.myValue;
+    console.log(obj)};
+
+        });
+    </script>
+
+</html>

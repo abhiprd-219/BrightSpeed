@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Add your global styles here */
+
+        *, *:before, *:after {
+             box-sizing: border-box;
+             }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+}
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Style for Register form */
+        .styleRegister {
+            position: relative;
+            margin: 0 auto;
+            width: 270px;
+            height: 300px;
+            margin-top: 50px;
+            padding: 30px;
+            border: 1px solid rgb(83, 24, 24);
+            border-radius: 5px;
+            background-color: #094508;
+        }
+
+        input[type=text] {
+            position: relative;
+            margin-top: 10px;
+            padding:10px;
+            border:0;
+            box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+        
+
+        /* Style for Sign In form */
+        .styleSignIn {
+            position: relative;
+            margin: 0 auto;
+            width: 270px;
+            height: 210px;
+            margin-top: 50px;
+            padding: 30px;
+            border: 1px solid rgb(83, 24, 24);
+            border-radius: 5px;
+            background-color: #094508;
+        }
+    </style>
+</head>
+<body ng-app="app">
+    <header>
+    
+         <nav>
+             <ul>
+                 <li><a href="#">Home</a></li>
+                 <li><a href="#">About</a></li>
+                 <li><a href="#">Pricing</a></li>
+                 <li><a href="#">Terms of use</a></li>
+                 <li><a href="#">Contact</a></li>
+             </ul>
+         </nav>
+     </header>
+
+    <div ng-controller="formCtrl"> 
+        
+
+            
+        <!-- Registration -->
+
+        
+
+        <div ng-show = "registerHide">
+
+            <div class = "styleRegister">
+        <!-- <div ng-if="flag"> -->
+            <div id = "inputText">
+            <input type="text" placeholder="Enter UserName" ng-model="userName">
+
+            <input type="text" placeholder="Enter pass" ng-model="userPass">
+            <input type="text" placeholder="Enter City" ng-model="userCity">
+            </div>
+
+            <p>{{isRegister}}</p>
+
+        <button ng-click="register()" id = "register">Register</button>
+
+        <!-- </div> -->
+        </div>
+        </div>
+
+        <br><br><br>
+        
+        <!-- SignIN -->
+        <div ng-show = "signInHide">
+            <div class = "styleSignIn">
+        <!-- <div ng-if="flag"> -->
+            <input type="text" placeholder="Enter userName" ng-model="name">
+
+            <input type="text" placeholder="Enter pass" ng-model="pass">
+
+            <button ng-click="signIn()">Sign In</button>
+            <p>{{isSignIn}}</p>
+        <!-- </div> -->
+        </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Add your footer content here -->
+        Thank you for Visiting ShopEx
+    </footer>
+    </body>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+
+    <script>
+
+        var app= angular.module("app",[]);
+
+        app.controller("formCtrl",["$scope",function($scope){
+
+            // $scope.flag =true;
+
+            $scope.registerHide = true;
+            $scope.signInHide = false;
+
+            $scope.isRegister = '';
+            $scope.isSignIn = '';
+
+            $scope.userName;
+            $scope.userPass;
+            $scope.userCity;
+
+            $scope.name;
+            $scope.pass;
+
+            var userList=[];
+
+            $scope.register=function(){
+                    var userObj={};
+                    userObj.name=$scope.userName;
+                    userObj.pass=$scope.userPass;
+                    userObj.city=$scope.userCity;
+
+                    userList.push(userObj);
+
+                    console.log(userObj);
+                   console.log(userList);
+
+                   if($scope.registerHide == true){
+                    $scope.registerHide = false;
+                    $scope.signInHide = true;
+                }
+
+                else{
+
+                    $scope.registerHide = true;
+                    $scope.signInHide = false;
+
+                }
+
+               
+            }
+
+            
+
+            $scope.signIn=function(){
+                    var signInInfo={};
+                    signInInfo.name=$scope.name;
+                    signInInfo.pass=$scope.pass;
+                    
+
+                    console.log(signInInfo);
+
+                    for(let i of userList){
+                        if(i.name == $scope.name && i.pass == $scope.pass){
+                            $scope.isSignIn = "Validation Successful";
+                            console.log("successfully passed");
+                        }
+                        else{
+                            console.log("Validation unsuccessful",$scope.name,i.name );
+                            $scope.isSignIn = "Validation UnSuccessful";
+
+                        }
+                    }
+
+                    
+            }
+
+            $scope.registerHide = true;
+            $scope.signInHide = false;
+
+        }])
+
+
+
+    </script>
+</html>
