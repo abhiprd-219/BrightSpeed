@@ -1,10 +1,10 @@
 
-app.controller('signInCtrl', ['$scope', 'userservices', '$location', '$window', function($scope, userservices, $location, $window) {
+app.controller('signInCtrl', ['$scope', 'userservices', '$location', '$window', function ($scope, userservices, $location, $window) {
     $scope.value;
 
-    $scope.loginCheck = function() {
+    $scope.loginCheck = function () {
         console.log($scope.password);
-        $scope.data = userservices.getuserData(function(data) {
+        $scope.data = userservices.getuserData(function (data) {
             $scope.value = data;
             var flag = true;
 
@@ -14,35 +14,46 @@ app.controller('signInCtrl', ['$scope', 'userservices', '$location', '$window', 
                     flag = false;
                     $location.path('/index');
                     $window.localStorage.setItem("userName", $scope.userName);
-                     // Exit the loop since the login is successful
+
                 }
             }
-
             if (flag) {
                 alert('Enter valid credentials');
             }
 
-            // Redirect outside of the loop
-           
         });
     }
 }]);
 
 
-app.controller('registration', ['$scope', 'userservices','$location', function($scope, userservices, $location){
-    $scope.postData=function(){
-       
-        var userobj={
-            userName:$scope.userName,
-            email:$scope.email,
-            password:$scope.password
+app.controller('registration', ['$scope', 'userservices', '$location', function ($scope, userservices, $location) {
+    $scope.postData = function () {
+
+        var userobj = {
+            userName: $scope.userName,
+            email: $scope.email,
+            password: $scope.password
         };
         console.log(userobj);
+        if ($scope.email && $scope.email.indexOf('@gmail.com') === -1) {
+            alert('Email must be a Gmail address.');
 
-        userservices.postuserData(userobj, function(data){
-            console.log(data);
-            $location.path('#/signIn');
-        });
+        }
+
+        if ($scope.password && $scope.password.length < 6) {
+            alert('Password must be at least 6 characters long.');
+
+        }
+
+        else {
+
+
+
+            userservices.postuserData(userobj, function (data) {
+                console.log(data);
+                $location.path('/');
+            });
+        }
     }
 }])
 

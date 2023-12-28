@@ -2,7 +2,7 @@
 
 
   <div class="navbar">
-    <div class = "user"><i>Welcome  </i><b>{{user}}</b></div>
+    <div class = "user"><i>Welcome  </i><div class = "userName"><b>{{user}}</b></div></div>
     <div class="dropdown">
       <div class="filter-search">
         <label>Filter</label>
@@ -21,13 +21,13 @@
         <option value="desc">High to Low</option>
       </select>
     </div>
-    <div controller = "logout"></div>
+
     <button ng-click = "logout()">logout</button>
   </div>
   
 
  <!-- <div ng-view> -->
-<div class="container">
+<span class="container">
  <div class="product-grid">
     <ul>
       <li ng-repeat="product in ctrl.filteredProducts">
@@ -41,7 +41,7 @@
         </div>
       </li>
     </ul>
-  </div>
+  </span>
   </div>
   </div>
   <!-- </div> -->
